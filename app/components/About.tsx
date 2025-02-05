@@ -114,14 +114,6 @@ export default function About() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-32 text-center"
         >
           <div className="bg-gray-800 p-6 rounded-xl border border-green-500/20">
-            <h4 className="text-3xl font-bold text-green-400">50K+</h4>
-            <p className="text-gray-400 mt-2">Holders</p>
-          </div>
-          <div className="bg-gray-800 p-6 rounded-xl border border-green-500/20">
-            <h4 className="text-3xl font-bold text-green-400">$2M+</h4>
-            <p className="text-gray-400 mt-2">Market Cap</p>
-          </div>
-          <div className="bg-gray-800 p-6 rounded-xl border border-green-500/20">
             <h4 className="text-3xl font-bold text-green-400">24/7</h4>
             <p className="text-gray-400 mt-2">Support</p>
           </div>

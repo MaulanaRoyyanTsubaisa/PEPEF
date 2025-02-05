@@ -16,19 +16,31 @@ export default function Home() {
   useEffect(() => {
     const fetchPrice = async () => {
       try {
-        const response = await fetch("https://api.raydium.io/v2/sdk/token/price")
-        const data = await response.json()
-        const pepefPrice = data["PEPEF"]?.price || "N/A"
-        setTokenPrice(pepefPrice !== "N/A" ? pepefPrice.toFixed(6) : "N/A")
-      } catch (error) {
-        console.error("Failed to fetch price:", error)
-      }
-    }
+        const response = await fetch(
+          "https://api.raydium.io/v2/sdk/token/price"
+        );
+        const data = await response.json();
 
-    fetchPrice()
-    const interval = setInterval(fetchPrice, 10000)
-    return () => clearInterval(interval)
-  }, [])
+        console.log("API Response:", data); // Cek data yang tersedia
+
+        // Pastikan PEPEF ada dalam daftar token
+        if (data["PEPEF"]) {
+          setTokenPrice(Number(data["PEPEF"].price).toFixed(6));
+        } else {
+          console.warn("Token PEPEF tidak ditemukan!");
+          setTokenPrice("N/A");
+        }
+      } catch (error) {
+        console.error("Gagal mengambil harga token:", error);
+        setTokenPrice("N/A");
+      }
+    };
+
+    fetchPrice();
+    const interval = setInterval(fetchPrice, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
 
   const connectWallet = async () => {
     if (typeof window !== "undefined" && (window as any).solana && (window as any).solana.isPhantom) {
