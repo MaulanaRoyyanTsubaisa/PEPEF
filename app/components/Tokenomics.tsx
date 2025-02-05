@@ -12,10 +12,9 @@ export default function Tokenomics() {
             </h3>
             <ul className="list-disc list-inside text-gray-300">
               <li>60% - Public Sale</li>
-              <li>10% - Team and Development</li>
-              <li>15% - Marketing and Partnerships</li>
-              <li>10% - Community Rewards</li>
-              <li>5% - Charity</li>
+              <li>25% - Team and Development</li>
+              <li>10% - Marketing and Partnerships</li>
+              <li>5% - Community Rewards</li>
             </ul>
           </div>
           <div>
@@ -36,4 +35,3 @@ export default function Tokenomics() {
     </section>
   );
 }
-
